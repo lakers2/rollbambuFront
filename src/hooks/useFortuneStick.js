@@ -20,8 +20,9 @@ export default function useFortuneStick() {
     try {
       // 模拟摇签过程
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      const response = await fetch('http://localhost:8000/api/fortune');
+      const response = await fetch('https://rollbambubackend-production.up.railway.app/api/fortune');
+      console.log('API 响应状态:', response.status);
+      console.log('API 响应头:', response.headers);
       if (!response.ok) {
         throw new Error('获取运势失败');
       }
